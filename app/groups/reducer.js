@@ -1,8 +1,8 @@
-module.exports = todos
+module.exports = groupsReducer
 
-function todos (state = {}, action) {
+function groupsReducer (state = {}, action) {
   switch (action.type) {
-    case 'CREATE_TODO':
+    case 'CREATE_GROUP':
       return {
         ...state,
         [action.payload.id]: action.payload

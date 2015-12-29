@@ -5,6 +5,8 @@ const { mapObjIndexed, values } = require('ramda')
 
 const LayoutContainer = require('app/layout/container')
 const FourOhFourContainer = require('app/four-oh-four/container')
+const createLandingRoutes = require('app/landing/routes')
+const createGroupsRoutes = require('app/groups/routes')
 
 function createRoutes (store) {
   return (
@@ -17,6 +19,11 @@ function createRoutes (store) {
           }),
           bulk(__dirname, '*/routes.js')
         ))
+      }
+      {
+        store.getState().currentUser ?
+          createGroupsRoutes(store) :
+          createLandingRoutes(store)
       }
       <Route path="*" component={FourOhFourContainer} />
     </Route>

@@ -1,14 +1,14 @@
 const React = require('react')
 const { connect } = require('react-redux')
 
-class TodosContainer extends React.Component {
+class GroupsContainer extends React.Component {
   render () {
     return <div>
-      todo list!
+      group list!
     </div>
   }
 }
 
 module.exports = connect(
   (state) => ({})
-)(TodosContainer)
+)(GroupsContainer)
