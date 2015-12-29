@@ -5,7 +5,7 @@ const { Router } = require('react-router')
 const { createHistory } = require('history')
 const { syncReduxAndRouter } = require('redux-simple-router')
 
-const routes = require('app/routes')
+const createRoutes = require('app/routes')
 const createStore = require('app/store')
 const fetchElement = require('app/util/fetch-element')
 
@@ -19,7 +19,7 @@ syncReduxAndRouter(history, store)
 
 const main = (
   <Router createElement={fetchElement} history={history}>
-    { routes }
+    { createRoutes(store) }
   </Router>
 )
 
