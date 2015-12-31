@@ -1,12 +1,17 @@
 .container {
   display: flex;
   justify-content: space-between;
+  background-color: #2C3E50;
+  padding: .3em 1em;
 }
 
 .home {
-
+	font-family: 'Amatic SC', cursive;
+	color: #ECF0F1;
+	text-decoration: none;
+	font-size: 38px;
 }
 
-.user {
-
+.user img {
+	border-radius: 50%;
 }
