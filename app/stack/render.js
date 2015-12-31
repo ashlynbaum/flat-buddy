@@ -69,7 +69,7 @@ function renderFullPage (innerHtml, initialData) {
         <script>
           window.__data = ${ JSON.stringify(initialData) }
         </script>
-        <script src="bundle.js"></script>
+        <script src="/bundle.js"></script>
       </body>
     </html>
   `
