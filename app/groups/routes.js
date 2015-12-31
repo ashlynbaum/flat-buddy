@@ -1,8 +1,12 @@
 const React = require('react')
-const { Route } = require('react-router')
+const { IndexRoute, Route } = require('react-router')
 
-const GroupsContainer = require('./container')
+const IndexContainer = require('./containers/index')
+const ShowContainer = require('./containers/show')
 
 module.exports = function createRoutes (store) {
-  return <Route path="/groups" component={GroupsContainer} />
+  return <Route path="groups">
+  	<IndexRoute component={IndexContainer} />
+  	<Route path=":id" component={ShowContainer} />
+  </Route>
 }
