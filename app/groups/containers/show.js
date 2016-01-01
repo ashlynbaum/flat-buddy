@@ -1,22 +1,15 @@
 const React = require('react')
 const { connect } = require('react-redux')
 
+const GroupDisplay = require('../components/group-display')
+
 class GroupsContainer extends React.Component {
   render () {
     const { group } = this.props
 
     return <div>
-      the best group!
-      <GroupItem group={group} />
+      <GroupDisplay group={group} />
     </div>
-  }
-}
-
-class GroupItem extends React.Component {
-  render() {
-    const { group } = this.props
-
-    return <li>{ group.name }</li>
   }
 }
 

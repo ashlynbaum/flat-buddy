@@ -2,12 +2,14 @@ const React = require('react')
 const { connect } = require('react-redux')
 const { map, values } = require('ramda')
 
+const GroupsListItem = require('../components/groups-list-item')
+
 class GroupsContainer extends React.Component {
   render () {
     const { groups } = this.props
 
     const mapGroupItems = map(function(group) {
-      return <GroupItem key={group.id} group={group} />
+      return <GroupsListItem key={group.id} group={group} />
     })
 
     return <div>
@@ -19,13 +21,6 @@ class GroupsContainer extends React.Component {
   }
 }
 
-class GroupItem extends React.Component {
-  render() {
-    const { group } = this.props
-
-    return <li>{ group.name }</li>
-  }
-}
 
 module.exports = connect(
   (state) => ({
