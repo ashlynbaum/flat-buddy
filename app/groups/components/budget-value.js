@@ -1,4 +1,5 @@
 const React = require('react')
+
 const style = require('./budget-value.css')
 
 class BudgetValue extends React.Component {

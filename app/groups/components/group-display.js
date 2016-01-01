@@ -1,6 +1,6 @@
 const React = require('react')
-const style = require('./group-display.css')
 
+const style = require('./group-display.css')
 const BudgetValue = require('./budget-value')
 
 class GroupDisplay extends React.Component {
