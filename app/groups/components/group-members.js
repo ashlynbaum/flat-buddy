@@ -1,13 +1,12 @@
 const React = require('react')
+import MemberList from 'app/groups/components/member-list'
 
 class GroupMembers extends React.Component {
   render () {
     const { members, people } = this.props
-    console.log("props", this.props)
-    console.log("group members", members)
 
     const mapMembers = members.map(function(member) {
-      return <MemberName name={ people[member].name } />
+      return <MemberList name={ people[member].name } />
     })
 
     return (
@@ -20,11 +19,6 @@ class GroupMembers extends React.Component {
   }
 } 
 
-class MemberName extends React.Component {
-  render() {
-    const name = this.props.name
-    return <li> { name } </li>
-  }
-}
+
 
 module.exports = GroupMembers

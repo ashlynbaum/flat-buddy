@@ -9,9 +9,6 @@ class GroupsContainer extends React.Component {
   render () {
     const { group, children, members, people } = this.props
 
-    console.log("members", members)
-    console.log("children", children)
-
     return <div>
       <GroupDisplay group={group} />
       <GroupNav group={group} />
