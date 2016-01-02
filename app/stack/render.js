@@ -7,7 +7,7 @@ const { createHistory } = require('history')
 const { Router, RoutingContext, match } = require('react-router')
 
 const createStore = require('app/store')
-const routes = require('app/routes')
+const createRoutes = require('app/routes')
 const fetchAllData = require('app/util/fetch-all-data')
 
 module.exports = createRender
@@ -17,7 +17,7 @@ function createRender (config) {
     const store = createStore()
 
     match({
-      routes: routes,
+      routes: createRoutes(store),
       location: req.path
     }, function (err, redirectLocation, renderProps) {
       if (redirectLocation) {
@@ -56,6 +56,7 @@ function renderFullPage (innerHtml, initialData) {
         <meta charset="utf-8" />
         <title>Happy Flat :)</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
       </head>
       <body>
         <main>${ innerHtml }</main>

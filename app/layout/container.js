@@ -1,12 +1,14 @@
 const React = require('react')
 const { connect } = require('react-redux')
 
+const Nav = require('app/nav/components/nav')
+
 class LayoutContainer extends React.Component {
   render () {
     const { children } = this.props
 
     return <div>
-      <span>hello world!</span>
+      <Nav />
       { children }
     </div>
   }

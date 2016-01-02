@@ -3,4 +3,6 @@ const { IndexRoute } = require('react-router')
 
 const LandingContainer = require('./container')
 
-module.exports = <IndexRoute component={LandingContainer} />
+module.exports = function createRoutes (store) {
+  return <IndexRoute component={LandingContainer} />
+}
