@@ -8,8 +8,8 @@ const { getMembersByGroupId } = require('../getters')
 import { addMember } from 'app/memberships/actions'
 
 class GroupsContainer extends React.Component {
-  const addMember = () => {
-    this.props.dispatch(addMember())
+  addMember = (member) => {
+    this.props.dispatch(addMember(member))
   }
 
   render () {
@@ -25,7 +25,7 @@ class GroupsContainer extends React.Component {
             ...child.props,
             members,
             people,
-            addMember
+            addMember: this.addMember
           }
         }))
       }
