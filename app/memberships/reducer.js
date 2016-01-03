@@ -1,5 +1,6 @@
 module.exports = membershipsReducer
 
+import cuid from 'cuid'
 import { ADD_MEMBER, addMember} from 'app/memberships/actions'
 
 let initialState = {
@@ -11,11 +12,14 @@ let initialState = {
 function membershipsReducer (state = initialState, action) {
   switch (action.type) {
     case ADD_MEMBER:
+      const id = cuid()
       return {
         ...state,
-        id: action.id,
-        memberId: 1,
-        groupId: 0
+        [id]: {
+          id: id,
+          memberId: action.memberId,
+          groupId: action.groupId,
+        }
       };
     default:
       return state

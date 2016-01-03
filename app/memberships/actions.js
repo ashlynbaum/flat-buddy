@@ -2,9 +2,10 @@
 export const ADD_MEMBER = "ADD_MEMBER"
 
 /* Action Creators */
-export function addMember(member) {
+export function addMember(memberId, groupId) {
   return {
     type: ADD_MEMBER,
-    member
+    memberId,
+    groupId
   }
 }

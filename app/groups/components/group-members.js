@@ -4,10 +4,10 @@ const React = require('react')
 import MemberList from 'app/groups/components/member-list'
 
 class GroupMembers extends React.Component {
-  addMemberClick = (e) => {
-    this.props.addMember({
-      name: 'example name'
-    })
+  addMemberClick = (memberId) => {
+    return (e) => {
+      this.props.addMember( memberId )
+    }
   }
 
   render () {
@@ -19,7 +19,7 @@ class GroupMembers extends React.Component {
 
     return (
       <div>
-        <button onClick={this.addMemberClick} >
+        <button onClick={this.addMemberClick(1)} >
           Add Member
         </button>
         <ul>
