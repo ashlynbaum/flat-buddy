@@ -7,7 +7,7 @@ class GroupsListItem extends React.Component {
   render() {
     const { group } = this.props
 
-    return <li><Link to={`/groups/${ group.id }`}>{ group.name }</Link></li>
+    return <li key={ group.id } ><Link to={`/groups/${ group.id }`}>{ group.name }</Link></li>
   }
 }
 

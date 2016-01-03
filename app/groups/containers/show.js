@@ -5,7 +5,13 @@ const GroupDisplay = require('../components/group-display')
 const GroupNav = require('../components/group-nav')
 const { getMembersByGroupId } = require('../getters')
 
+import { addMember } from 'app/memberships/actions'
+
 class GroupsContainer extends React.Component {
+  const addMember = () => {
+    this.props.dispatch(addMember())
+  }
+
   render () {
     const { group, children, members, people } = this.props
 
@@ -18,7 +24,8 @@ class GroupsContainer extends React.Component {
           props: {
             ...child.props,
             members,
-            people
+            people,
+            addMember
           }
         }))
       }
