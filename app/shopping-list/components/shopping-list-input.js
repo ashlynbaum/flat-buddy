@@ -1,4 +1,4 @@
-const React = require('react')
+import React, { PropTypes } from 'react'
 
 export default class ShoppingListInput extends React.Component {
   constructor (props) {
@@ -10,13 +10,13 @@ export default class ShoppingListInput extends React.Component {
   static propTypes = {
     onSave: PropTypes.func.isRequired,
     text: PropTypes.string,
-    placeholder: propTypes.string,
-    editing: propTypes.bool,
-    newShoppingListItem: propTypes.bool
+    placeholder: PropTypes.string,
+    editing: PropTypes.bool,
+    newShoppingListItem: PropTypes.bool
   }
 
   // Event Listeners
-  handleSubmit(e) => {
+  handleSubmit = (e) => {
     const text = e.target.value.trim()
     // on when the enter key is pushed
     if (e.which === 13) {
@@ -27,11 +27,11 @@ export default class ShoppingListInput extends React.Component {
     }
   }
 
-  handleChange(e) => {
+  handleChange = (e) => {
     this.setState({ text: e.target.value })
   }
 
-  handleBlur(e) => {
+  handleBlur = (e) => {
     if (!this.props.newShoppingListItem) {
       this.props.onSave(e.target.value)
     }
@@ -39,17 +39,17 @@ export default class ShoppingListInput extends React.Component {
 
 
   render () {
-    const { placeholder }= this.props
+    const { placeholder } = this.props
 
     return (
       <input
         type="text"
-        placeholder={placeholder}
+        placeholder={ placeholder }
         autoFocus="true"
-        value={this.state.text}
-        onBlur={this.handleBlur}
-        onChang={this.handleChange}
-        onKeyDown={this.handleSubmit}
+        value={ this.state.text }
+        onBlur={ this.handleBlur }
+        onChange={ this.handleChange }
+        onKeyDown={ this.handleSubmit }
        />
     )
   }

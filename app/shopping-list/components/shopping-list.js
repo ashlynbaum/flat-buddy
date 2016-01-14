@@ -1,12 +1,13 @@
-const React = require('react')
+import React, { PropTypes } from 'react'
 
 import ShoppingListInput from 'app/shopping-list/components/shopping-list-input'
 
 export default class ShoppingList extends React.Component {
   // Set proptypes
-  static.PropTypes = {
+  static propTypes = {
 
   }
+
   // action dispatch
   render () {
     const { shoppingList , shoppingActions } = this.props

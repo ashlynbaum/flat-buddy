@@ -1,10 +1,10 @@
-const React = require('react')
-const { IndexRoute, Route } = require('react-router')
+import React from 'react'
+import { IndexRoute, Route } from 'react-router'
 
-const IndexContainer = require('./containers/index')
-const ShowContainer = require('./containers/show')
-const GroupMembers = require('./components/group-members')
-const ShoppingList = require('app/shopping-list/components/shopping-list')
+import IndexContainer from './containers/index'
+import ShowContainer from './containers/show'
+import GroupMembers from './components/group-members'
+import ShoppingList from 'app/shopping-list/components/shopping-list'
 
 module.exports = function createRoutes (store) {
   return <Route path="groups">
