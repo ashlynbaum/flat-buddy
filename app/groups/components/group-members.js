@@ -19,6 +19,7 @@ class GroupMembers extends React.Component {
 
     return (
       <div>
+        <input />
         <button onClick={this.addMemberClick(1)} >
           Add Member
         </button>

@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import classnames from 'classnames'
 
 export default class ShoppingListInput extends React.Component {
   constructor (props) {
@@ -20,8 +21,8 @@ export default class ShoppingListInput extends React.Component {
     const text = e.target.value.trim()
     // on when the enter key is pushed
     if (e.which === 13) {
-      this.propr.onSave(text)
-      if (this.props.newShoppingListItem) {
+      this.props.onSave(text)
+      if (this.props.newItem) {
         this.setState({ text: "" })
       }
     }
@@ -42,7 +43,11 @@ export default class ShoppingListInput extends React.Component {
     const { placeholder } = this.props
 
     return (
-      <input
+      <input className={
+                classnames({
+                  edit: this.props.editing,
+                  'new-item': this.props.newItem
+                })}
         type="text"
         placeholder={ placeholder }
         autoFocus="true"

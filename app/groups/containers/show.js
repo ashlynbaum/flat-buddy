@@ -21,7 +21,7 @@ class ShowGroupsContainer extends React.Component {
   }
 
   static propTypes = {
-    shoppingList: PropTypes.array.isRequired,
+    shoppingList: PropTypes.object.isRequired,
     shoppingActions: PropTypes.object.isRequired
   }
 
@@ -41,7 +41,7 @@ class ShowGroupsContainer extends React.Component {
             people,
             addMember: this.addMember,
             shoppingList: shoppingList,
-            shoppingActions: shoppingActions
+            shoppingActions: shoppingActions,
           }
         }))
       }
