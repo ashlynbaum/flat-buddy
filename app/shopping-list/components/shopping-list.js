@@ -5,7 +5,6 @@ import ShoppingListInput from 'app/shopping-list/components/shopping-list-input'
 export default class ShoppingList extends React.Component {
   // Set proptypes
   static propTypes = {
-    addListItem: PropTypes.func.isRequired
   }
 
   handleSave = (text) => {
@@ -19,7 +18,7 @@ export default class ShoppingList extends React.Component {
     const { shoppingList , shoppingActions } = this.props
 
     return (
-      <div>This is a list!
+      <div>Add item to list:
         <ShoppingListInput newItem
           onSave={ this.handleSave }
           shoppingList={ shoppingList }

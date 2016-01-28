@@ -16,8 +16,7 @@ let initialState = {
 export default function shoppingListReducer(state = initialState, action) {
   switch(action.type) {
     case ADD_LIST_ITEM:
-      const id = max(keys(state)) + 1
-      console.log("state id: ", id)
+      const id = +(max(keys(state))) + 1
       return {
         ...state,
         [id]: {
