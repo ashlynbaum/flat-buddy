@@ -37,7 +37,13 @@ function createRender (config) {
             <RoutingContext { ...renderProps } />
           </Provider>
 
-          const innerHtml = renderToString(component)
+          var innerHtml
+          try {
+            innerHtml = renderToString(component)
+          } catch (err) {
+            res.setHeader('content-type', 'text/plain')
+            return res.status(500).send(err.stack)
+          }
 
           const html = renderFullPage(innerHtml, store.getState())
 
@@ -63,7 +69,7 @@ function renderFullPage (innerHtml, initialData) {
         <script>
           window.__data = ${ JSON.stringify(initialData) }
         </script>
-        <script src="bundle.js"></script>
+        <script src="/bundle.js"></script>
       </body>
     </html>
   `
