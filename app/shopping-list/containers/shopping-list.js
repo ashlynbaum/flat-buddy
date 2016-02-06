@@ -20,7 +20,7 @@ class ShoppingListContainer extends React.Component {
         <ShoppingList group={ group }
                       shoppingList={ shoppingList }
                       shoppingActions={ shoppingActions } />
-        <Item shoppingList={ shoppingList}/>
+        <Item shoppingList={ shoppingList }/>
       </div>
     )
   }
