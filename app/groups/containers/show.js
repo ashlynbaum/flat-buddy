@@ -1,52 +1,31 @@
-const React = require('react')
+import React, { PropTypes } from 'react'
 const { connect } = require('react-redux')
+import { bindActionCreators } from 'redux'
+
 
 const GroupDisplay = require('../components/group-display')
 const GroupNav = require('../components/group-nav')
-const { getMembersByGroupId } = require('../getters')
 
-import { addMember } from 'app/memberships/actions'
-
-class GroupsContainer extends React.Component {
-  addMember = (memberId) => {
-    this.props.dispatch(
-      addMember(
-        memberId,
-        this.props.group.id
-      )
-    )
-  }
-
+class ShowGroupsContainer extends React.Component {
 
   render () {
-    const { group, children, members, people } = this.props
-
+    const { group, children, members, people, shoppingList, shoppingActions } = this.props
     return <div>
       <GroupDisplay group={group} />
       <GroupNav group={group} />
-      {
-        React.Children.map(children, (child) => ({
-          ...child,
-          props: {
-            ...child.props,
-            members,
-            people,
-            addMember: this.addMember
-          }
-        }))
-      }
+      { children }
     </div>
   }
 }
 
+
+// connect(mapStateToProps, mapDispatchToProps)(app)
 module.exports = connect(
   (state, ownProps) => {
     const groupId = ownProps.params.id
 
     return {
       group: state.groups[groupId],
-      members: getMembersByGroupId(state)[groupId],
-      people: state.people
     }
   }
-)(GroupsContainer)
+)(ShowGroupsContainer)
