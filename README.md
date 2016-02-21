@@ -4,6 +4,13 @@
 
 budget management for flat shares
 
+## development
+``` 
+$ npm run dev
+```
+
+access locally at `localhost:5000`
+
 ## stack
 
 - task runner: [npm scripts](http://substack.net/task_automation_with_npm_run)
