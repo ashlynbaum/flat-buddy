@@ -3,12 +3,14 @@ import { map } from 'lodash'
 
 export default class Item extends React.Component {
   render () {
-    const { shoppingList } = this.props
+    const { shoppingList, shoppingActions } = this.props
     const mapItems = map( shoppingList, function (item) {
       return (
         <li purchased={ item.purchased } key={item.id} >
             { item.text }
-            </li>
+            <button className="destroy"
+                      onClick={() => shoppingActions.deleteListItem(item.id)} />
+        </li>
       )
     })
 

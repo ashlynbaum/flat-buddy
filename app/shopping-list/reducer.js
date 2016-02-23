@@ -1,13 +1,14 @@
 module.exports = shoppingListReducer
 
 import cuid from 'cuid'
-const { max, keys } =  require('lodash')
+const { max, keys, omit } =  require('lodash')
 
 import { ADD_LIST_ITEM, EDIT_LIST_ITEM, DELETE_LIST_ITEM, PURCHASE_LIST_ITEM } from 'app/shopping-list/actions'
 
 
 let initialState = {
  0: {
+    id: 0,
     text: "first shopping item",
     purchased: false
   }
@@ -16,10 +17,11 @@ let initialState = {
 export default function shoppingListReducer(state = initialState, action) {
   switch(action.type) {
     case ADD_LIST_ITEM:
-      const id = +(max(keys(state))) + 1
+      const id = cuid()
       return {
         ...state,
         [id]: {
+          id: id,
           text: action.text,
           purchased: false
         }
@@ -27,7 +29,7 @@ export default function shoppingListReducer(state = initialState, action) {
     case EDIT_LIST_ITEM:
       return state
     case DELETE_LIST_ITEM:
-      return state
+      return omit(state, action.id)
     case PURCHASE_LIST_ITEM:
       return state
     default:
